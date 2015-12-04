@@ -45,7 +45,7 @@ class umd::sam (
 
   exec { 'sam-yaim':
     command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n NAGIOS -n SAM_NAGIOS && rpm -q sam-nagios > /opt/glite/yaim/etc/sam.info',
-    unless  => 'test -f /opt/glite/yaim/etc/sam.info',
+    unless  => '/usr/bin/test -f /opt/glite/yaim/etc/sam.info',
     require => [ File['/opt/glite/yaim/etc/site-info.def'], Package['sam-nagios'], File['/opt/glite/yaim/functions/local/config_httpd_ssl'], ],
     timeout => 0,
   }
