@@ -12,8 +12,8 @@ class umd::topbdii (
     ensure  => $bdii_version,
   }
   exec { 'bdii-yaim':
-    command  => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n BDII_top && rpm -q emi-bdii-top > /opt/glite/yaim/etc/emi-bdii-top.info',
-    unless   => 'test -f /opt/glite/yaim/etc/emi-bdii-top.info',
+    command  => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n BDII_top && /bin/rpm -q emi-bdii-top > /opt/glite/yaim/etc/emi-bdii-top.info',
+    unless   => '/usr/bin/test -f /opt/glite/yaim/etc/emi-bdii-top.info',
     require  => [ File['/opt/glite/yaim/etc/site-info.def'], Package['emi-bdii-top'] ],
     timeout  => 0,
   }
