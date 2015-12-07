@@ -9,8 +9,8 @@ class umd::ui (
     ensure  => $ui_version,
   }
   exec { 'ui-yaim':
-    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n UI && rpm -q emi-ui > /opt/glite/yaim/etc/emi-ui.info',
-    unless  => 'test -f /opt/glite/yaim/etc/emi-ui.info',
+    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n UI && /bin/rpm -q emi-ui > /opt/glite/yaim/etc/emi-ui.info',
+    unless  => '/usr/bin/test -f /opt/glite/yaim/etc/emi-ui.info',
     require => [ File['/opt/glite/yaim/etc/site-info.def'], Package['emi-ui'] ],
     timeout => 0,
   }
