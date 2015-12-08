@@ -48,8 +48,8 @@ class umd::creamce (
     source  => 'puppet:///files/umd/wn-list.conf',
   }
   exec { 'creamce-yaim':
-    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n creamCE -n CLUSTER -n TORQUE_server -n TORQUE_utils && rpm -q emi-cream-ce > /opt/glite/yaim/etc/emi-cream-ce.info',
-    unless  => 'test -f /opt/glite/yaim/etc/emi-cream-ce.info',
+    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n creamCE -n CLUSTER -n TORQUE_server -n TORQUE_utils && /bin/rpm -q emi-cream-ce > /opt/glite/yaim/etc/emi-cream-ce.info',
+    unless  => '/bin/test -f /opt/glite/yaim/etc/emi-cream-ce.info',
     require => [ File['/opt/glite/yaim/etc/users.conf'], File['/opt/glite/yaim/etc/wn-list.conf'], File['/opt/glite/yaim/etc/groups.conf'], Package['emi-cream-ce'], Package['emi-torque-server'], Package['emi-torque-utils'], Package['emi-cluster'], Service['munge'], Package['sudo'], File['/opt/glite/yaim/functions/local/config_cluster_gip_glue2'], File['/opt/glite/yaim/functions/local/config_cluster_gip_lrms_dynamic'], File['/opt/glite/yaim/functions/local/config_cluster_gip_scheduler_plugin'], File['/opt/glite/yaim/functions/local/config_maui_cfg'] ],
     timeout => 0,
   }
