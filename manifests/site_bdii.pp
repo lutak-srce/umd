@@ -9,8 +9,8 @@ class umd::site_bdii (
     ensure  => $bdii_version,
   }
   exec { 'bdii-yaim':
-    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n BDII_site && rpm -q emi-bdii-site > /opt/glite/yaim/etc/emi-bdii-site.info',
-    unless  => 'test -f /opt/glite/yaim/etc/emi-bdii-site.info',
+    command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n BDII_site && /bin/rpm -q emi-bdii-site > /opt/glite/yaim/etc/emi-bdii-site.info',
+    unless  => '/bin/test -f /opt/glite/yaim/etc/emi-bdii-site.info',
     require => [ File['/opt/glite/yaim/etc/site-info.def'], Package['emi-bdii-site'] ],
     timeout => 0,
   }
