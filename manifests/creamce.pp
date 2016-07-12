@@ -31,21 +31,21 @@ class umd::creamce (
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///files/umd/users.conf',
+    source  => 'puppet:///modules/srce/umd/users.conf',
   }
   file { '/opt/glite/yaim/etc/groups.conf':
     ensure  => file,
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///files/umd/groups.conf',
+    source  => 'puppet:///modules/srce/umd/groups.conf',
   }
   file { '/opt/glite/yaim/etc/wn-list.conf':
     ensure  => file,
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///files/umd/wn-list.conf',
+    source  => 'puppet:///modules/srce/umd/wn-list.conf',
   }
   exec { 'creamce-yaim':
     command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n creamCE -n CLUSTER -n TORQUE_server -n TORQUE_utils && /bin/rpm -q emi-cream-ce > /opt/glite/yaim/etc/emi-cream-ce.info',

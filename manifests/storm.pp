@@ -29,7 +29,7 @@ class umd::storm (
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///files/umd/users.conf',
+    source  => 'puppet:///modules/srce/umd/users.conf',
     require => Package['emi-storm-backend-mp'],
   }
   file { '/opt/glite/yaim/etc/groups.conf':
@@ -37,7 +37,7 @@ class umd::storm (
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet:///files/umd/groups.conf',
+    source  => 'puppet:///modules/srce/umd/groups.conf',
     require => Package['emi-storm-backend-mp'],
   }
   exec { 'creamce-yaim':

@@ -36,21 +36,21 @@ class umd::wn (
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///files/umd/users.conf',
+    source => 'puppet:///modules/srce/umd/users.conf',
   }
   file { '/opt/glite/yaim/etc/groups.conf':
     ensure => file,
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///files/umd/groups.conf',
+    source => 'puppet:///modules/srce/umd/groups.conf',
   }
   file { '/opt/glite/yaim/etc/wn-list.conf':
     ensure => file,
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///files/umd/wn-wn-list.conf',
+    source => 'puppet:///modules/srce/umd/wn-wn-list.conf',
   }
   exec { 'wn-yaim':
     command => 'rm -f /var/lib/torque/mom_priv/config; /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n WN -n TORQUE_client && rpm -q emi-wn > /opt/glite/yaim/etc/emi-wn.info',
