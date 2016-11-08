@@ -53,9 +53,10 @@ class umd::wn (
     source => 'puppet:///modules/srce/umd/wn-wn-list.conf',
   }
   exec { 'wn-yaim':
-    command => 'rm -f /var/lib/torque/mom_priv/config; /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n WN -n TORQUE_client && rpm -q emi-wn > /opt/glite/yaim/etc/emi-wn.info',
+    command => '/bin/rm -f /var/lib/torque/mom_priv/config; /opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n WN -n TORQUE_client && /bin/rpm -q emi-wn > /opt/glite/yaim/etc/emi-wn.info',
     unless  => '/usr/bin/test -f /opt/glite/yaim/etc/emi-wn.info',
     require => [ File['/opt/glite/yaim/etc/users.conf'], File['/opt/glite/yaim/etc/groups.conf'], Package['emi-wn'], Package['emi-torque-client'], Service['munge'], File['/opt/glite/yaim/functions/local/config_torque_client'] ],
+    path    => '/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin:/root/bin',
     timeout => 0,
   }
   file { '/opt/glite/yaim/functions/local/config_torque_client':
