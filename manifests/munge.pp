@@ -11,7 +11,7 @@ class umd::munge {
     owner   => munge,
     group   => munge,
     mode    => '0400',
-    source  => "puppet:///files/umd/${::domain}/munge.key",
+    source  => "puppet:///modules/srce/umd/${::domain}/munge.key",
     require => Package['munge'],
   }
   service { 'munge':

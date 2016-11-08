@@ -4,7 +4,7 @@
 # Yaim installation.
 #
 class umd (
-  $site_info_source = 'puppet:///files/umd/site-info.def',
+  $site_info_source = 'puppet:///modules/srce/umd/site-info.def',
 ) {
   package { 'glite-yaim-core':
     ensure  => present,
