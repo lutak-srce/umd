@@ -17,35 +17,35 @@ class umd::creamce (
     require => Service['munge'],
   }
   package { 'emi-torque-server':
-    ensure  => $torque_server_version,
+    ensure => $torque_server_version,
   }
   package { 'emi-torque-utils':
-    ensure  => $torque_utils_version,
+    ensure => $torque_utils_version,
   }
   package { 'emi-cluster':
-    ensure  => $cluster_version,
+    ensure => $cluster_version,
   }
   require ::sudoers
   file { '/opt/glite/yaim/etc/users.conf':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/srce/umd/users.conf',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/srce/umd/users.conf',
   }
   file { '/opt/glite/yaim/etc/groups.conf':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/srce/umd/groups.conf',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/srce/umd/groups.conf',
   }
   file { '/opt/glite/yaim/etc/wn-list.conf':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/srce/umd/wn-list.conf',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/srce/umd/wn-list.conf',
   }
   exec { 'creamce-yaim':
     command => '/opt/glite/yaim/bin/yaim -c -s /opt/glite/yaim/etc/site-info.def -n creamCE -n CLUSTER -n TORQUE_server -n TORQUE_utils && /bin/rpm -q emi-cream-ce > /opt/glite/yaim/etc/emi-cream-ce.info',
@@ -55,18 +55,18 @@ class umd::creamce (
     path    => '/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin:/root/bin',
   }
   file { '/opt/glite/yaim/functions/local/config_cluster_gip_glue2':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/umd/config_cluster_gip_glue2',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/umd/config_cluster_gip_glue2',
   }
   file { '/opt/glite/yaim/functions/local/config_cluster_gip_lrms_dynamic':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/umd/config_cluster_gip_lrms_dynamic',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/umd/config_cluster_gip_lrms_dynamic',
   }
   #file { '/opt/glite/yaim/functions/local/config_cream_gip':
   #  ensure  => file,
@@ -76,17 +76,17 @@ class umd::creamce (
   #  source  => 'puppet:///modules/umd/config_cream_gip',
   #}
   file { '/opt/glite/yaim/functions/local/config_cluster_gip_scheduler_plugin':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/umd/config_cluster_gip_scheduler_plugin',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/umd/config_cluster_gip_scheduler_plugin',
   }
   file { '/opt/glite/yaim/functions/local/config_maui_cfg':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => 'puppet:///modules/umd/config_maui_cfg',
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/umd/config_maui_cfg',
   }
 }
