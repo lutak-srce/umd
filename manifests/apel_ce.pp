@@ -26,7 +26,7 @@ class umd::apel_ce (
     content => template('umd/parser.cfg.erb'),
     require => Package['apel-parsers'],
   }
-  
+
   cron { 'glite_apel_parser':
     command => '/usr/bin/apelparser',
     user    => 'root',
