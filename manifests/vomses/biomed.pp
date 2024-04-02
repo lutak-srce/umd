@@ -10,7 +10,7 @@ class umd::vomses::biomed {
     owner   => root,
     group   => root,
     mode    => '0644',
-    content => '"biomed" "cclcgvomsli01.in2p3.fr" "15000" "/O=GRID-FR/C=FR/O=CNRS/OU=CC-IN2P3/CN=cclcgvomsli01.in2p3.fr" "biomed" "24"',
+    content => '"biomed" "cclcgvomsli01.in2p3.fr" "15000" "/DC=org/DC=terena/DC=tcs/C=FR/ST=Paris/O=Centre national de la recherche scientifique/CN=cclcgvomsli01.in2p3.fr" "biomed" "24"',
     require => File['/etc/vomses'],
   }
 }
