@@ -20,7 +20,7 @@ class umd::voms::ops {
     ensure  => absent,
   }
   file { '/etc/grid-security/vomsdir/ops/voms-ops-auth.cern.ch.lsc':
-    ensure  => absent,
+    ensure  => file,
     owner   => root,
     group   => root,
     mode    => '0644',
