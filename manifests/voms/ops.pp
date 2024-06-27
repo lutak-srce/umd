@@ -14,23 +14,20 @@ class umd::voms::ops {
   }
 
   file { '/etc/grid-security/vomsdir/ops/voms2.cern.ch.lsc':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    source  => [
-      'puppet:///modules/umd/voms/ops/voms2.cern.ch.lsc',
-    ],
-    require => [ Package['ca-policy-egi-core'], File['/etc/grid-security/vomsdir/ops'] ],
+    ensure  => absent,
   }
   file { '/etc/grid-security/vomsdir/ops/lcg-voms2.cern.ch.lsc':
-    ensure  => file,
+    ensure  => absent,
+  }
+  file { '/etc/grid-security/vomsdir/ops/voms-ops-auth.cern.ch.lsc':
+    ensure  => absent,
     owner   => root,
     group   => root,
     mode    => '0644',
     source  => [
-      'puppet:///modules/umd/voms/ops/lcg-voms2.cern.ch.lsc',
+      'puppet:///modules/umd/voms/ops/voms-ops-auth.cern.ch.lsc',
     ],
     require => [ Package['ca-policy-egi-core'], File['/etc/grid-security/vomsdir/ops'] ],
   }
+
 }
