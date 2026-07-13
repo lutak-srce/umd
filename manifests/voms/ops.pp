@@ -29,5 +29,14 @@ class umd::voms::ops {
     ],
     require => [ Package['ca-policy-egi-core'], File['/etc/grid-security/vomsdir/ops'] ],
   }
-
+  file { '/etc/grid-security/vomsdir/ops/voms2-ops-auth.cern.ch.lsc':
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    source  => [
+      'puppet:///modules/umd/voms/ops/voms2-ops-auth.cern.ch.lsc',
+    ],
+    require => [ Package['ca-policy-egi-core'], File['/etc/grid-security/vomsdir/ops'] ],
+  }
 }
